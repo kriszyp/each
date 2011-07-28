@@ -18,10 +18,10 @@ define([], function(){
 			if(callback.length > 2){
 				emit = getEmit(result = []);
 			}
-			if(array.length > -1){
+			if(length > -1){
 				if(thisObject){
 					// iterate over array
-					do{
+					for(;i < length; i++){
 						// call the callback
 						var newValue = callback.call(thisObject, array[i], i, emit);
 						// if a value was returned, examine it
@@ -29,11 +29,11 @@ define([], function(){
 							// defined value breaks out of loop
 							return newValue;
 						}
-					}while(++i < length);
+					}
 				}else{
 					// we do a separate branch for when thisObject isn't provided because
 					// it is faster to avoid the .call()
-					do{
+					for(;i < length; i++){
 						// call the callback
 						var newValue = callback(array[i], i, emit);
 						// if a value was returned, examine it
@@ -41,7 +41,7 @@ define([], function(){
 							// defined value breaks out of loop
 							return newValue;
 						}
-					}while(++i < length);
+					}
 				}
 			}else{
 				// not an array, iterate over an object

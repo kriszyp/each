@@ -1,6 +1,7 @@
 // iteration function
 // see http://jsperf.com/custom-foreach-vs-native-foreach for perf tests
-"use strict";
+// "use strict";
+
 (function(define){
 define([], function(){
 	var undefined;
